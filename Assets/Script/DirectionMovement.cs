@@ -22,9 +22,9 @@ public class DirectionMovement : MonoBehaviour
         Move();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             ObjectPoolingManager.Instance.RetrunObjectToPool(gameObject);
         }

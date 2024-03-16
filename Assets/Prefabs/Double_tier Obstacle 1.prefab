@@ -44,7 +44,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 41007028512656560}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8dfd59fcbffabc34380b497d952e57bf, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -64,7 +64,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.99591184}
@@ -95,6 +95,7 @@ MonoBehaviour:
   coinPrefab: {fileID: 7851690609189367126, guid: ae5227188fa41d647906d7a67edea1fe, type: 3}
   coinCount: 16
   gapDistance: 1
+  isCreate: 0
   xRadius: 2
   yRadius: 2.5
   yCorrection: 0.5

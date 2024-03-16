@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 // Player 판정 스크립트
 public class PlayerJudgment : MonoBehaviour
@@ -8,12 +9,18 @@ public class PlayerJudgment : MonoBehaviour
     // 게임 매니저 컨포넌트
     private GameManager gameManager;
 
-    // Player 컨트롤러 컨포넌트
-    private PlayerController playerController;
+    private Rigidbody2D rgd;
+
+    // 튕겨져 나가는 힘
+    [SerializeField] private float recoilForce;
+
+    // SpriteRenderer 컴포넌트 참조
+    private SpriteRenderer sprite;
 
     private void Awake()
     {
-        playerController = GetComponentInParent<PlayerController>();
+        rgd = GetComponentInParent<Rigidbody2D>();
+        sprite = GetComponentInParent<SpriteRenderer>();
         gameManager = FindObjectOfType<GameManager>();
     }
 
@@ -25,24 +32,23 @@ public class PlayerJudgment : MonoBehaviour
             ObjectPoolingManager.Instance.RetrunObjectToPool(collision.gameObject);
             gameManager.IncreaseScore(1000);
         }
-
-        // 장애물 관련
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // 장애물
         if (collision.gameObject.CompareTag("Scenery"))
         {
-            if (gameManager.LifeCount > 1)
-            {
-                gameManager.LifeCount--;
-                Destroy(gameManager.hearts[gameManager.LifeCount]);
-                
-            }
-            else if(gameManager.LifeCount == 1)
-            {
-                gameManager.LifeCount--;
-                Destroy(gameManager.hearts[gameManager.LifeCount]);
-                // 게임 오버 처리
-                playerController.m_Rigidbody.velocity = Vector2.zero;
-                playerController.isGameOver = true;
-            }
+            StartCoroutine(Assaulted(collision));
         }
+    }
+
+    IEnumerator Assaulted(Collision2D collision)
+    {
+        // 피격시 
+        sprite.color = new Color(1, 1, 1, 0.4f);
+
+        yield return new WaitForSeconds(5f);
+
+        sprite.color = new Color(1f, 1f, 1f, 1f);
     }
 }

@@ -19,13 +19,16 @@ public class AutoController : MonoBehaviour
     // 레이케스트를 발사할 Transfrom
     [SerializeField] private Transform rayTransform;
 
+    // Ground 레이어 마스크
+    [SerializeField] private LayerMask groundLayer;
+
     private void Update()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime); // 왼쪽으로 이동합니다.
-        hit = Physics2D.Raycast(rayTransform.position, -transform.right, rayLength);
+        hit = Physics2D.Raycast(rayTransform.position, -transform.right, rayLength, groundLayer);
         Debug.DrawRay(rayTransform.position, -transform.right * rayLength, Color.red);
 
-        if (hit.collider != null && hit.collider.CompareTag("Ground"))
+        if (hit.collider != null)
         {
             movingRight = !movingRight;
             // 몬스터의 움직임을 반대 방향으로 변경합니다.

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2834522915235033486}
   - component: {fileID: 6318199094193812324}
   - component: {fileID: 41624666395729873}
-  - component: {fileID: 2737988502056444505}
   - component: {fileID: 1829585462328417141}
   m_Layer: 6
   m_Name: Single_Tier_Obstacle 2
@@ -124,36 +123,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 7851690609189367126, guid: ae5227188fa41d647906d7a67edea1fe, type: 3}
   coinCount: 8
   gapDistance: 1
+  isCreate: 0
   xRadius: 1.3
   yRadius: 1.2
   yCorrection: 0
---- !u!50 &2737988502056444505
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5989512825937733482}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &1829585462328417141
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -163,7 +136,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 5989512825937733482}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8dfd59fcbffabc34380b497d952e57bf, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -183,7 +156,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

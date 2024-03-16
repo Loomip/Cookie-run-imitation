@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TastScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: f7cf099568c290542a84700362a401d5
+  - enabled: 1
     path: Assets/Scenes/Round 1.unity
     guid: df7bbd14c7c0cdd45bdf564f2bfc494c
   - enabled: 1
